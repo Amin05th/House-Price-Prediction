@@ -22,14 +22,4 @@ missing_values = ["LotFrontage", "MasVnrType", "MasVnrArea", "BsmtQual", "BsmtCo
 for columns in missing_values:
     df[columns].fillna("No", inplace=True)
 
-# create for non numerical columns dummies
-
-non_numerical_columns = ["MSZoning", "Street", "Utilities", "Neighborhood", "BldgType", "RoofStyle", "RoofMatl",
-                         "MasVnrType",
-                         "ExterQual", "ExterCond", "Foundation", "BsmtQual", "BsmtCond", "BsmtFinType1", "BsmtFinType2",
-                         "HeatingQC", "CentralAir", "Electrical", "KitchenQual", "PavedDrive", "SaleType",
-                         "SaleCondition"]
-
-df = pd.get_dummies(df, columns=non_numerical_columns)
-
 df.to_csv("cleaned_train.csv")
